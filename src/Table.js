@@ -10,16 +10,11 @@ export function Table({ products, removeProduct }) {
     setShift(shift + 1);
   }
 
-  /* const [colorToggle, setColorToggle] = useState("#fff");
-  function handleChange() {
-    colorToggle === "#fff" ? setColorToggle("#2b87db") : setColorToggle("#fff");
-    console.log("change");
-  } */
   const [selectedId, setSelectedId] = useState(null);
   console.log(selectedId);
   const [onlyDif, setOnlyDif] = useState(false);
   function handleChange() {
-    setOnlyDif(prevState => !prevState);
+    setOnlyDif((prevState) => !prevState);
   }
 
   const arr = [
@@ -28,8 +23,8 @@ export function Table({ products, removeProduct }) {
       name: "Минимальная ставка",
       render(product) {
         return `${+product.minRate}%`;
-      }
-    }
+      },
+    },
   ];
 
   const arr1 = [
@@ -38,7 +33,7 @@ export function Table({ products, removeProduct }) {
       name: "Первоначальный взнос",
       render(product) {
         return `${parseInt(product.minDeposit * 100) / 100},0%`;
-      }
+      },
     },
     {
       deps: ["minAmount", "maxAmount"],
@@ -52,7 +47,7 @@ export function Table({ products, removeProduct }) {
           )} до ${product.maxAmount
           .toString()
           .replace(/(\d)(?=(\d{3})+(\D|$))/g, "$1 ")} ₽`;
-      }
+      },
     },
     {
       name: "Подтверждение дохода",
@@ -62,14 +57,14 @@ export function Table({ products, removeProduct }) {
             ? "Без подтверждения дохода"
             : "Требуется подтверждение дохода"
         }`;
-      }
+      },
     },
     {
       name: "Срок кредита",
       render(product) {
         return `от ${product.termFrom / 12} до ${product.termTo / 12} лет`;
-      }
-    }
+      },
+    },
   ];
 
   const arr2 = [
@@ -77,34 +72,34 @@ export function Table({ products, removeProduct }) {
       name: "Место заключения договора",
       render(product) {
         return `${product.contractPlace}`;
-      }
+      },
     },
     {
       name: "Требования к недвижимости",
       render(product) {
         return `${product.realtyRequirements}`;
-      }
+      },
     },
     {
       name: "Страхование",
       render(product) {
         return `${product.insurance}`;
-      }
+      },
     },
     {
       name: "Досрочное погашение",
       render(product) {
         return `${product.prepayment}`;
-      }
-    }
+      },
+    },
   ];
   const arr3 = [
     {
       name: "Место заключения договора",
-      render: product => {
+      render: (product) => {
         return `${product.contractPlace}`;
-      }
-    }
+      },
+    },
   ];
   return (
     <div className="allTable">
@@ -134,7 +129,7 @@ export function Table({ products, removeProduct }) {
             key={id}
             className="column head__column"
             style={{
-              left: `${-25 * shift}%`
+              left: `${-25 * shift}%`,
             }}
             onMouseOver={() => setSelectedId(id)}
             onMouseOut={() => setSelectedId(null)}
@@ -174,13 +169,13 @@ export function Table({ products, removeProduct }) {
             </label>
           </div>
         </div>
-        {products.map(product => (
+        {products.map((product) => (
           <div
             className="column"
             style={{
               left: `${-25 * shift}%`,
               background:
-                product.id === selectedId ? "rgb(117, 200, 255)" : undefined
+                product.id === selectedId ? "rgb(117, 200, 255)" : undefined,
             }}
           >
             <div className="element">

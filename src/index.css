@@ -88,6 +88,9 @@ code {
   display: flex;
   flex-direction: column;
 }
+.buttonFetch {
+  cursor: pointer;
+}
 .button_remove {
   width: 16px;
   height: 16px;
